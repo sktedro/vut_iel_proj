@@ -1,0 +1,65 @@
+\section{Příklad 5}
+% Jako parametr zadejte skupinu (A-H)
+\patyZadani{F}
+Rovnice, pomocou ktorých budeme riešiť tento obvod: \\
+$i_L' = \frac{u_L}{L}$ \\
+$U = u_R + u_L$ \\
+$i_L = i_R = \frac{U_R}{R}$ \\
+\newline
+Vyjadríme si z toho $i_L'$: \\
+$u_L = U - u_R$ \\
+$Li_L' = U - Ri_L$ \\
+$U = Li_L' + Ri_L$ - diferenciálna rovnica prvého rádu (nehomogénna) \\
+$i_L(0) = i_{LP}$ \\
+\newline
+Očakávaný tvar riešenia: \\
+$i_L(t) = K(t)e^{t\lambda}$ \\
+\newline
+Charakteristická rovnica: \\
+$Li_L' + Ri_L = U$ - za $i_L'$ dosadíme $\lambda$, a za $i_L$ jednotku: \\
+$L\lambda + R * 1 = 0$ \\
+$\lambda = -\frac{R}{L} = -\frac{15}{30} = -\frac{1}{2}$ \\
+\newline
+Nasledujú derivácie: \\
+$i_L' = K'(t)e^{-\frac{Rt}{L}} - \frac{R}{L}k(t)e^{-\frac{Rt}{L}}$ \\
+$LK'(t)e^{-\frac{Rt}{L}} - L\frac{R}{L}K(t)e^{-\frac{Rt}{L}} + RK(t)e^{-\frac{Rt}{L}} = U$ \\
+$LK'(t)e^{-\frac{Rt}{L}} - RK(t)e^{-\frac{Rt}{L}} + RK(t)e^{-\frac{Rt}{L}} = U$ \\
+$U = LK'(t)e^{-\frac{Rt}{L}}$ \\
+$K'(t)e^{-\frac{Rt}{L}} = \frac{U}{L}$ \\
+$K'(t) = \frac{\frac{U}{L}}{\frac{1}{e^{\frac{Rt}{L}}}}$ \\
+$K'(t) = \frac{U}{L}e^{\frac{Rt}{L}}$ \\
+\newline
+Do očakávaného riešenia dosadíme a zderivujeme: \\
+$i_L = Ke^{t\lambda}$ \\
+$i_L = Ke^{-\frac{Rt}{L}}$ \\
+$i_L' = K'e^{-\frac{Rt}{L}} + K*(-\frac{R}{L}e^{-\frac{Rt}{L}})$ \\
+\newline
+Následne dosadíme do diferenciálnej rovnice: \\
+$i_L'L + i_LR = U$ \\
+$L(K'e^{-\frac{Rt}{L}} - \frac{R}{L}Ke^{-\frac{Rt}{L}}) + RKe^{-\frac{Rt}{L}} = U$ \\
+$LK'e^{-\frac{Rt}{L}} - RKe^{-\frac{Rt}{L}} + RKe^{-\frac{Rt}{L}} = U$ \\
+$LK'e^{-\frac{Rt}{L}} = U$ \\
+$30K'e^{-\frac{t}{2}} = 22$ \\
+$15K'e^{-\frac{t}{2}} = 11$ \\
+$K'e^{-\frac{t}{2}} = \frac{11}{15}$ \\
+$K' = \frac{\frac{11}{15}}{\frac{e^{-\frac{t}{2}}}{1}}$ \\
+$K = \boldsymbol{\frac{11}{15e^{-\frac{t}{2}}}}$ \\
+\newline
+Nasleduje integrácia: \\
+$K' = \frac{11}{\frac{15}{1}\frac{1}{e^{\frac{t}{2}}}} = \frac{\frac{11}{1}}{\frac{15}{e^{\frac{t}{2}}}} = \frac{11e^{\frac{t}{2}}}{15}$ \\
+$K = \boldsymbol{\frac{22e^{\frac{t}{2}}}{15} + C}$ \\
+\newline
+Dosadíme do očakávaného riešenia: \\
+$i_L(t) = K(t)e^{t\lambda} = (\frac{22e^{\frac{t}{2}}}{15} + C)e^{-\frac{t}{2}} = Ce^{-\frac{t}{2}} + \frac{22e^{\frac{t}{2}}e^{-\frac{t}{2}}}{15} = \frac{22}{15} + Ce^{-\frac{t}{2}}$ \\
+\newline
+Dosadíme konštantu a získame tým finálnu rovnicu: \\
+$i_L = (\frac{22e^{\frac{t}{2}}}{15} + \frac{128}{15})e^{-\frac{t}{2}} = \frac{22e^{\frac{t}{2}}e^{-\frac{t}{2}}+128e^{-\frac{t}{2}}}{15} = \boldsymbol{\frac{22}{15} + \frac{128e^{-\frac{t}{2}}}{15}}$ \\
+\newline
+\newline
+Nakoniec otestujeme rovnicu pre t = 0 a t = $\infty$: \\
+$i_L(0) = \frac{22}{15} + \frac{128e^0}{15} = 10A \checkmark$ \\
+$i_L(\infty) = \frac{22}{15} + '0' = \frac{U}{R} = \frac{22}{15} \checkmark$ \\
+\newline
+Nakoniec otestujeme platnosť: \\
+$Li_L' + i_LR = U$ \\
+$22 = 30(-\frac{64e^{-\frac{t}{2}}}{15} + 15(\frac{22}{15} + \frac{128e^{-\frac{t}{2}}}{15}) = 22 \checkmark$ \\

@@ -1,0 +1,83 @@
+\section{Příklad 1}
+% Jako parametr zadejte skupinu (A-H)
+\prvniZadani{C}
+\newline
+Napätia dvoch sériovo zapojených zdojov môžeme zjednodušiť jednoduchým sčítaním: \\
+$U = U_1+U_2 = 100+80 = \textbf{180V}$ \\
+\newline
+Zjednodušíme paralelné rezistory $R_3$ a $R_4$: \\
+$R_{34} = \frac{R_3R_4}{R_3+R_4} = \frac{190*220}{190+220} = \textbf{101.9512\SI{}{\ohm}}$ \\
+\newline
+\newline
+Zjednodušíme paralelné rezistory $R_{34}$ a $R_2$: \\
+$R_{234} = R_{34}+R_2 = 101.9512+810 = \textbf{911.9512\SI{}{\ohm}}$ \\
+\newline
+\newline
+Transfigurácia z trojuholníka na hviezdu:
+\begin{center}
+\begin{circuitikz}[]
+\draw
+(0,0) to [R, l=$R_8$] (7,0)--(7,3)
+(5,3) to [R,-*, l=$R_B$](7,3)
+(4,4) to [R,*-, l=$R_1$] (1.5,4)
+(4,4) to [R,-*,l=$R_A$] (5,3) 
+(4,2) to [R,l=$R_C$] (5,3)
+(4,2) to [R, *-, l=$R_{234}$] (1.5,2) 
+(1.5,4) -- (1.5,2)
+(1.5,3)to [short ,*-] (0,3) -- (0,2)
+to [dcvsource,v=$U_{EKV}$] (0,0)
+;
+\end{circuitikz}\\
+\end{center}
+\newline
+$R_A = \frac{R_5R_7}{R_5+R_6+R_7} = \frac{220*260}{220+720+260} = \textbf{47.6667\SI{}{\ohm}}$ 
+\newline
+$R_B = \frac{R_5R_6}{R_5+R_6+R_7} = \frac{220*720}{220+720+260} = \textbf{132\SI{}{\ohm}}$ 
+\newline
+$R_C = \frac{R_6R_7}{R_5+R_6+R_7} = \frac{260*720}{220+720+260} = \textbf{156\SI{}{\ohm}}$ \\
+\newline
+Ďalej môžeme sčítať rezistory $R_1$ a $R_A$ a rezistory $R_{234}$ a $R_B$: \\
+$R_{1A} = R_1+R_A = 450+47.6667 = \textbf{497.6667\SI{}{\ohm}}$ \\
+$R_{234B} = R_{234}+R_B = 911.9512+132 = \textbf{1043.9512\SI{}{\ohm}}$ \\
+\newline
+Ďalej zjednodušíme rezistory $R_{1A}$ a $R_{234B}$ zapojené paralelne: \\
+$R_{1234AB} = \frac{R_{1A}R_{234B}}{R_{1A}+R_{234B}} = \frac{497.6667*1043.9512}{497.6667+1043.9512} = \textbf{337.0094\SI{}{\ohm}}$ \\
+\newline
+\begin{center}
+\begin{circuitikz}[]
+\draw
+(0,3) to [R, l= $R_{1234AB}$]
+(4,3) to [R, l=$R_C$]
+(4,0) to [R, l=$R_8$] (0,0)
+(0,3) to [dcvsource, v= U] (0,0)
+;
+\end{circuitikz}\\
+\end{center}
+Nakoniec nám ostáva sčítať tri sériovo zapojené rezistory $R_{1234AB}$, $R_C$ a $R_8$: \\
+$R = R_{1234AB}+R_C+R_8 = 337.0094+156+180 = \textbf{673.0094\SI{}{\ohm}}$
+\newline
+\begin{center}
+\begin{circuitikz}[]
+\draw
+(0,3) to [short, i=I] (4,3)to [R, l=R](4,0)--(0,0)
+(0,3) to [dcvsource, v= U] (0,0)
+;
+\end{circuitikz}\\
+\end{center}
+Pomocou Ohmovho zákona, hodnotami U a R môžeme vypočítať celkový prúd: \\
+$I = \frac{U}{R} = \frac{180}{673.0094} = \textbf{0.2675}A$ \\
+\newline
+K ďalším výpočtom budeme potrebovať $U_{1A}$, ktoré vypočítame Ohmovým zákonom: \\
+$U_{1A} = R_{1234AB}*I = 337.0094*0.2675 = \textbf{90.1349}V$ \\
+\newline
+Ďalej vypočítame prúd $I_{R_{1}}$ pomocou Ohmovho zákona: \\
+$I_{R_{1}} = \frac{U_{1A}}{R_{1A}} = \frac{90.1349}{497.6667} = \textbf{0.1811}A$ \\
+\newline
+Vypočítame si prúd $I_{R_{234}}$ ako rozdiel celkového prúdu $I$ a prúdu $I_{R_{234}}$ \\
+$I_{R_{234}} = I - I_{R_{1}} = 0.2675-0.1811 = \textbf{0.08634}A$ \\
+\newline
+Teraz si môžeme vypočítať $I_{R_6}$ ako rozdiel $I_{R_{1}}$ a $I_{R_{234}}$: \\
+$I_{R_6} = I_{R_{1}} - I_{R_{234}} = 0.1811-0.08634 = \textbf{0.07378}A$ \\
+\newline
+A napätie na rezistore $R_6$ vypočítame Ohmovým zákonom: \\
+$U_{R_6} = R_6 * I_{R_6} = 720*0.07378 = \textbf{53.1194}V$

@@ -1,0 +1,7 @@
+\babel@toc {slovak}{}
+\contentsline {section}{\numberline {1}Příklad 1}{2}{section.1}%
+\contentsline {section}{\numberline {2}Příklad 2}{4}{section.2}%
+\contentsline {section}{\numberline {3}Příklad 3}{6}{section.3}%
+\contentsline {section}{\numberline {4}Příklad 4}{8}{section.4}%
+\contentsline {section}{\numberline {5}Příklad 5}{9}{section.5}%
+\contentsline {section}{\numberline {6}Shrnutí výsledků}{11}{section.6}%

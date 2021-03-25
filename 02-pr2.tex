@@ -1,0 +1,58 @@
+\section{Příklad 2}
+% Jako parametr zadejte skupinu (A-H)
+\druhyZadani{E}
+\newline
+V obvode skratujeme zdroj napätia aj $R_3$ a spočítame $R_{th}$: \\
+\newline
+\begin{center}
+\begin{circuitikz}[]
+\draw
+(0,0) -- (5,0)to [short,-*](5,2)--
+(5,5)to [R,-*,l=$R_{45}$](2.5,5) node [anchor=south]{A}
+to [R,l=$R_1$](0,5)-*(0,2) to [R,-*,l=$R_2$](2.5,2) node [anchor=north]{B}
+to[R,l=$R_6$](5,2)
+(2.5,5)to[open](2.5,2)
+(0,2)to [short,*-](0,0)
+;
+\end{circuitikz}
+\end{center}
+$R_{th} = \frac{R_1(R_4 + R_5)}{R_1 + R_4 + R_5} + \frac{R_2R_6}{R_2+R_6} = \frac{150(845)}{995}+\frac{335 * 150}{485} = \textbf{230.9952}\Omega$ \\
+\newline
+Do obvodu vrátime zdroj napätia a vzniknú nám dve slučky, pomocou ktorých môžeme vypočítať prúdy v obvode: \\
+\newline
+\begin{center}
+\begin{circuitikz}[]
+\draw
+(0,0) to [dcvsource,v=U] (5,0)to [short,-*](5,2)--
+(5,5)to [R,-*,l=$R_{45}$](2.5,5) node [anchor=south]{A}
+(2.5,5)to [open,v=$U_i$](2.5,2)
+(2.5,5)to [R,l=$R_1$,i_<=$I_1$](0,5)-*(0,2) to [R,-*,i_>=$I_2$,l=$R_2$](2.5,2) node [anchor=north]{B}
+(5,2)to[R,l=$R_6$](2.5,2)
+(2.5,5)to[open](2.5,2)
+(0,2)to [short,*-](0,0)
+;
+\end{circuitikz}
+\end{center}
+$S_1: U = R_2I_2 + R_6I_2$ \\
+$335I_2 + 150I_2 = U$ \\
+$482I_2 = 250V$ \\
+$I_2 = \frac{250}{482} = \textbf{0.5154}A$ \\
+\newline
+$S_2: R_2I_2 + R_6I_2 = R_1I_1 + R_4I_1 + R_5I_1$\\
+$485I_2 = 995I_1 = 249.969$ \\
+$I_1 = \frac{249.969}{995} = \textbf{0.2512}A$ \\
+\newline
+$I_{th} = I_1 + I_2 = 0.5154 + 0.2512 = \textbf{0.7666}A$ \\
+\newline
+Ďalej chceme zistiť $U_{th}$, takže si do obvodu na miesto $R_3$ zapojíme imaginárny zdroj. Stačí nám jedna slučka, pomocou ktorej vieme následne vypočítať Theveninovo napätie: \\
+\newline
+$U_{R_1} + U_{th} - U_{R_2} = 0$ \\
+$U_{th} = U_{R_2} - U_{R_1} = I_2R_2 - I1_R1 = \textbf{137.979V}$ \\
+\newline
+\newline
+Teraz si môžeme prekresliť obvod na ekvivalentný a vypočítať $I_{R_3}$ a $U_{R_3}$: \\
+\newline
+$I_{R_3} = \frac{U_{th}}{R_{th} + R_3} = \frac{134.979}{230.9951 + 625} = \textbf{0.1577}A$ \\
+\newline
+$U_{R_3} = R_3I_3 = 625 * 0.1577 = \textbf{98.5625}V$ \\
+\newline

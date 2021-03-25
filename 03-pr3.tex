@@ -1,0 +1,59 @@
+\section{Příklad 3}
+% Jako parametr zadejte skupinu (A-H)
+\tretiZadani{C}
+Nakreslíme si do obvodu šípky prúdov a napíšeme rovnice týchto prúdov pre tri z uzlov: \\
+$I_{R_1} = I_{R_3} + I_{R_2}$ \\
+$I_{R_5} = I_{R_3} + I_1$ \\
+$I_{R_4} + I_1 = I_{R_5} + I_2$ \\
+\newline
+Vyjadríme si prúdy: \\
+$I_{R_1} = \frac{U - U_A}{R_1}$ \\
+$I_{R_2} = \frac{U_A}{R_2}$ \\
+$I_{R_3} = \frac{U_A - U_B}{R_3}$ \\
+$I_{R_4} = \frac{U_C}{R_4}$ \\
+$I_{R_5} = \frac{U_B - U_C}{R_5}$ \\
+\newline
+Dosadíme vyjadrené prúdy do rovníc: \\
+\newline
+$I_{R_1} = I_{R_3} + I_{R_2}$ \\
+$\frac{U - U_A}{R_1} = \frac{U_A - U_B}{R_3} + \frac{U_A}{R_2}$ \\
+$(U - U_A)R_2R_3 = (U_A - U_B)R_1R_2 + U_AR_1R_3$ \\
+$UR_3R_2 - U_AR_2R_3 = U_AR_1R_2 - U_BR_1R_2 + U_AR_1R_3$ \\
+$190960 = 5564U_A - 1364U_B$ \\
+\newline
+$I_{R_5} = I_{R_3} + I_1$ \\
+$\frac{U_B - U_C}{R_5} = \frac{U_A - U_B}{R_3} + I_1$ \\
+$U_BR_3 - U_CR_3 = U_AR_5 - U_BR_5 + 0.85R_3R_5$ \\
+$56U_B - 56U_C = 30U_A - 30U_B + 1428$ \\
+$-30U_A + 86U_B - 56U_C = 1428$ \\
+\newline
+$I_{R_4} + I_1 = I_{R_5} + I_2$ \\
+$\frac{U_C}{R_4} + I_1 = \frac{U_B - U_C}{R_5} + I_2$ \\
+$U_CR_5 + 0.85R_4R_5 = U_BR_4 - U_CR_4 + 0.75R_4R_5$ \\
+$30U_C + 510 = 20U_B - 20U_C + 450$ \\
+\newline
+\newline
+Následne si vyjadríme $U_C$, $U_B$ a $U_A$: \\
+\newline
+$30U_C + 510 = 20U_B - 20U_C + 450$ \\
+$60 = 20U_B - 50U_C$ \\
+$50U_C = 20U_B - 60$ \\
+$U_C = \boldsymbol{\frac{20U_B - 60}{50}}$ \\
+\newline
+$1428 = -30U_A + 86U_B - 56U_C$ \\
+$1428 = -30U_A + 86U_B - 56(\frac{20U_B - 60}{50})$ \\
+$5*1428 = -30*5U_A + 86*5U_B - 56(5*\frac{2U_B - 6}{5})$ \\
+$7140 = -150U_A + 430 U_B - 112U_B + 336$ \\
+$6804 = -150U_A + 318U_B$ \\
+$U_B = \boldsymbol{\frac{150U_A + 6804}{318}}$ \\
+\newline
+$190960 = 5564U_A - (\frac{150U_A + 6804}{318})$ \\
+$190960 = 5564U_A - 643.3962U_A - 29184.4528$ \\
+$220144.4528 = 4920.6038U_A$ \\
+$U_A = \textbf{44.7393}V$
+\newline
+\newline
+Teraz je už jednoduché dopočítať $U_{R_2}$ a $I_{R_2}$ \\
+\newline
+$U_{R_2} = U_A = \textbf{44.7393}V$ \\
+$I_{R_2} = \frac{U_{R_2}}{R_2} = \frac{44.7393}{31} = \textbf{1.4432}A$ \\

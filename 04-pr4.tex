@@ -1,0 +1,49 @@
+\section{Příklad 4}
+% Jako parametr zadejte skupinu (A-H)
+\ctvrtyZadani{C}
+\newline
+Najprv si vypočítame impedancie kondenzátorov a cievok: \\
+$Z_{C_1} = \frac{1}{jC_1\omega} = -9.2264j$ \\
+$Z_{C_2} = \frac{1}{jC_2\omega} = -24.9655j$ \\
+$Z_{L_1} = jL_1\omega = 103.6726j$ \\
+$Z_{L_2} = jL_2\omega = 32.9867j$ \\
+\newline
+\newline
+Do obvodu si zakreslíme slučky $S_A$, $S_B$ a $S_C$ a slučky: \\
+\newline
+!!Obvod so slučkami \\
+\newline
+$\boldsymbol{S_A}: I_A(R_1 + Z_{L_2} + Z_{C_1}) - I_BZ_{C_1} - I_CZ_{L_2} = -35$ \\
+$\boldsymbol{S_B}: -I_AZ_{C_1} + I_B(Z_{C_1} + R_2 + Z_{L_1}) - I_CR_2 = 0$ \\
+$\boldsymbol{S_C}: -I_AZ_{L_2} - I_BR_2 + I_C(Z_{L_2} + R_2 + Z_{C_2}) = -45$ \\
+\newline
+\begin{gather*}
+\begin{pmatrix}
+R_1 + Z_{L_2} + Z_{C_1} & -Z_{C_1} & -Z_{L_2} \\
+-Z_{C_1} & Z_{C_1} + R_2 + Z_{L_1} & -R_2 \\
+-Z_{L_2} & -R_2 & Z_{L_2} + R_2 + Z_{C_2} \\
+\end{pmatrix}
+\begin{pmatrix}
+I_A \\
+I_B \\
+I_C \\
+\end{pmatrix}
+= 
+\begin{pmatrix}
+-35 \\
+0 \\
+-45
+\end{pmatrix}
+\end{gather*}
+\newline
+Maticu vyriešime pomocou Sarrusovho a Cramerovho pravidla, aby sme dostali $I_A$, $I_B$ a $I_A$: \\
+$I_C = \textbf{-1.0484 - 1.3494j}$ \\
+$I_B = \textbf{-0.161 + 0.2761j}$ \\
+$I_A = \textbf{-1.2093 - 1.638j}$ \\
+\newline
+Teraz si môžeme vypočítať $I_{L_2}$, $u_{L_2}$, $|U_{L_2}|$ a nakoniec $\varphi_{L_2}$ \\
+$I_{L_2} = I_A - I_C = \textbf{0.1609 + 0.2886j}$ \\
+$u_{L_2} = Z_{L_2}I_{L_2} = \textbf{-9.52 + 5.3076j}$ \\
+$|U_{L_2}| = \sqrt{Re(u_{L_2})^2 + Im(u_{L_2})^2} = -0.5086rad = \textbf{-29° 8' 24''}$ \\
+\newline
+!!Skontrolovať uhol!
